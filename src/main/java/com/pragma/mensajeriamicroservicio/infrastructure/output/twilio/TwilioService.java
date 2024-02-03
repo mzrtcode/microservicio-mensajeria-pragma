@@ -17,9 +17,9 @@ public class TwilioService implements INotificationPersistencePort {
 
         try {
             Twilio.init(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
-            logger.info("DESTINO: {} MENSAJE: {}", recipient, message);
             Message.creator(new PhoneNumber(recipient),
                     new PhoneNumber(System.getenv("TWILIO_SENDER_NUMBER")), message).create();
+            logger.info("DESTINO: {} MENSAJE: {}", recipient, message);
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw new NotificationFailedException("No fue posible enviar el mensaje");
