@@ -1,6 +1,7 @@
 package com.pragma.mensajeriamicroservicio.infrastructure.input.rest;
 
 import com.pragma.mensajeriamicroservicio.application.handler.NotificationHandlerImpl;
+import com.pragma.mensajeriamicroservicio.infrastructure.exception.NotificationFailedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,8 @@ public class NotificacionRestController {
     @GetMapping
     public void enviarNotificacionCliente(
             @RequestParam(value = "destino") String destino,
-            @RequestParam(value = "mensaje") String mensaje){
-
-        notificationHandler.enviarSMS(mensaje, destino);
+            @RequestParam(value = "mensaje") String mensaje) throws NotificationFailedException {
+                notificationHandler.enviarSMS(mensaje, destino);
 
     }
 }
