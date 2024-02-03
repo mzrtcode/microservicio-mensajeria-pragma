@@ -13,7 +13,7 @@ public class NotificationUseCase implements INotificationServicePort {
     }
 
     @Override
-    public void enviarSMS(String mensaje, String destino) throws NotificationFailedException {
-        notificationPersistencePort.sendSMS(mensaje, destino);
+    public void enviarSMS(String destino, String mensaje) throws NotificationFailedException {
+        notificationPersistencePort.sendSMS(destino, mensaje);
     }
 }

@@ -12,7 +12,7 @@ public class NotificationHandlerImpl implements INotificationHandler {
 
     private final INotificationServicePort notificationServicePort;
     @Override
-    public void enviarSMS(String mensaje, String destino) throws NotificationFailedException {
-        notificationServicePort.enviarSMS(mensaje, destino);
+    public void enviarSMS(String destino, String mensaje) throws NotificationFailedException {
+        notificationServicePort.enviarSMS(destino, mensaje);
     }
 }
