@@ -1,0 +1,10 @@
+server.port=8082
+spring.application.name=servicio-mensajeria
+jwt.secret=F65FD4A5E454FD5A4F5DAS4F5E45FADFSADF12ADF2ASD4F5AE1
+
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.url= jdbc:mysql://localhost:3306/ms-mensajeria-test
+spring.datasource.url= jdbc:mysql://localhost:3306/ms-mensajeria-test
+spring.datasource.username= root
+spring.datasource.password= toor

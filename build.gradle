@@ -11,6 +11,10 @@ java {
 	sourceCompatibility = '17'
 }
 
+ext {
+	springCloudAwsVersion = '3.0.1'
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -24,10 +28,12 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	// Otras dependencias
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.3.0'
@@ -35,7 +41,11 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5' // or 'io.jsonwebtoken:jjwt-gson:0.12.3' for gson
 
-	//TWILIO
+	// Dependencia de AWS Parameter Store
+	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:${springCloudAwsVersion}")
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
+
+	// TWILIO
 	implementation group: 'com.twilio.sdk', name: 'twilio', version: '8.8.0'
 
 }
